@@ -20,11 +20,22 @@
 </head>
 <body ng-app="myApp">
 
-    <div ng-controller="PlayerController">
-        <button ng-click="play()" class="button" ng-show="!playing">Play</button>
-        <button ng-click="stop()" class="button alert" ng-show="playing">Stop</button>
-        Playing audio: <b>{{playing}}</b>
+    <div class="container row">
+        <div class="large-8 small-8 columns">
+            <h2>Player</h2>
+            <div ng-controller="PlayerController">
+                <ul id="programs_list" class="">
+                    <li ng-repeat="program in programs">
+                        <span npr-link play='play(program)' ng-model="program"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="large-4 small-4 columns" ng-controller="RelatedController">
+            <h2>Related content</h2>
+        </div>
     </div>
+
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
